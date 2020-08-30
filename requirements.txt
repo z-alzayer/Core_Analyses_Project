@@ -1,0 +1,6 @@
+numpy
+mlflow
+opencv-python
+Pillow
+scipy
+scikit-image

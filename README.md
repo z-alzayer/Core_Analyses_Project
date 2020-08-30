@@ -1,5 +1,34 @@
 # Core Analyses Project
-BGS Core Processing workflow
+
+## Installation notes
+
+Install pytorch and torchvision from conda:
+
+```
+conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+```
+
+We plan to move to fastai v2 when it becomes available in MLFlow; for now, one needs to pin the fastai version to 1 in the filei `conda_meta/pinned` in virtual environment.
+
+```
+echo 'fastai 1.*' >> $CONDA_PREFIX/conda-meta/pinned
+conda install -c fastai -c pytorch fastai
+```
+
+Other dependencies via pip
+
+```
+pip install -r requirements.txt
+```
+
+The notebook includes an animated progressbar for which we need `ipywidgets` enabled
+
+```
+pip install ipywidgets
+jupyter nbextension enable --py widgetsnbextension
+```
+
+## BGS Core Processing workflow
 
 First of all why do this? Essentially classical edge detection workflows do not work very well on images that are not pre-processed or taken in a way where there is good contrast. Picking the right threshold value is also tedious and can take some time, even contouring and finding the correct contours needs to be done per image for optimal results. 
 ![Example of Canny Edge detection](Images/S00128804.Cropped_Top_2.gif)
